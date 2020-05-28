@@ -40,6 +40,7 @@ Partial Class Form1
         Me.btnEliminar = New FontAwesome.Sharp.IconButton()
         Me.btnEditar = New FontAwesome.Sharp.IconButton()
         Me.btnAgregar = New FontAwesome.Sharp.IconButton()
+        Me.txtidAlumno = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Dgv_Alumnos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,6 +48,7 @@ Partial Class Form1
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.txtidAlumno)
         Me.GroupBox1.Controls.Add(Me.PictureBox1)
         Me.GroupBox1.Controls.Add(Me.txtCorreo)
         Me.GroupBox1.Controls.Add(Me.txtTelefono)
@@ -59,9 +61,9 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(533, 19)
+        Me.GroupBox1.Location = New System.Drawing.Point(625, 19)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(359, 370)
+        Me.GroupBox1.Size = New System.Drawing.Size(335, 370)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Alumno"
@@ -178,9 +180,9 @@ Partial Class Form1
         'Dgv_Alumnos
         '
         Me.Dgv_Alumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Dgv_Alumnos.Location = New System.Drawing.Point(-91, 19)
+        Me.Dgv_Alumnos.Location = New System.Drawing.Point(12, 26)
         Me.Dgv_Alumnos.Name = "Dgv_Alumnos"
-        Me.Dgv_Alumnos.Size = New System.Drawing.Size(618, 412)
+        Me.Dgv_Alumnos.Size = New System.Drawing.Size(579, 412)
         Me.Dgv_Alumnos.TabIndex = 8
         '
         'btnEliminar
@@ -189,7 +191,7 @@ Partial Class Form1
         Me.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.None
         Me.btnEliminar.IconColor = System.Drawing.Color.Black
         Me.btnEliminar.IconSize = 16
-        Me.btnEliminar.Location = New System.Drawing.Point(692, 395)
+        Me.btnEliminar.Location = New System.Drawing.Point(661, 395)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Rotation = 0R
         Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
@@ -203,12 +205,12 @@ Partial Class Form1
         Me.btnEditar.IconChar = FontAwesome.Sharp.IconChar.None
         Me.btnEditar.IconColor = System.Drawing.Color.Black
         Me.btnEditar.IconSize = 16
-        Me.btnEditar.Location = New System.Drawing.Point(566, 395)
+        Me.btnEditar.Location = New System.Drawing.Point(771, 395)
         Me.btnEditar.Name = "btnEditar"
         Me.btnEditar.Rotation = 0R
         Me.btnEditar.Size = New System.Drawing.Size(75, 23)
         Me.btnEditar.TabIndex = 11
-        Me.btnEditar.Text = "Editar"
+        Me.btnEditar.Text = "MODIFICAR"
         Me.btnEditar.UseVisualStyleBackColor = True
         '
         'btnAgregar
@@ -217,7 +219,7 @@ Partial Class Form1
         Me.btnAgregar.IconChar = FontAwesome.Sharp.IconChar.None
         Me.btnAgregar.IconColor = System.Drawing.Color.Black
         Me.btnAgregar.IconSize = 16
-        Me.btnAgregar.Location = New System.Drawing.Point(783, 395)
+        Me.btnAgregar.Location = New System.Drawing.Point(885, 395)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Rotation = 0R
         Me.btnAgregar.Size = New System.Drawing.Size(75, 23)
@@ -225,17 +227,26 @@ Partial Class Form1
         Me.btnAgregar.Text = "AGREGAR"
         Me.btnAgregar.UseVisualStyleBackColor = True
         '
+        'txtidAlumno
+        '
+        Me.txtidAlumno.Enabled = False
+        Me.txtidAlumno.Location = New System.Drawing.Point(55, 18)
+        Me.txtidAlumno.Name = "txtidAlumno"
+        Me.txtidAlumno.Size = New System.Drawing.Size(53, 20)
+        Me.txtidAlumno.TabIndex = 24
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(880, 450)
+        Me.ClientSize = New System.Drawing.Size(972, 450)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnEditar)
         Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Dgv_Alumnos)
         Me.Name = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Form1"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -262,4 +273,5 @@ Partial Class Form1
     Friend WithEvents btnEliminar As FontAwesome.Sharp.IconButton
     Friend WithEvents btnEditar As FontAwesome.Sharp.IconButton
     Friend WithEvents btnAgregar As FontAwesome.Sharp.IconButton
+    Friend WithEvents txtidAlumno As TextBox
 End Class

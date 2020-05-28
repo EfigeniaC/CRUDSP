@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsD_Alumno.vb" />
+    <Compile Include="conexionAsql\clsD_conexion.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -105,7 +106,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ConexionAs\" />
+    <ProjectReference Include="..\CapaEntidad\CapaEntidad.vbproj">
+      <Project>{8C5CB943-CC57-48DE-BC9B-F67BE30EA16E}</Project>
+      <Name>CapaEntidad</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
