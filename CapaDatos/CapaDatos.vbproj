@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsD_Alumno.vb" />
+    <Compile Include="clsD_Curso.vb" />
+    <Compile Include="clsD_Notas.vb" />
     <Compile Include="conexionAsql\clsD_conexion.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

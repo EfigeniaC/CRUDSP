@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsE_Alumno.vb" />
+    <Compile Include="clsE_Curso.vb" />
+    <Compile Include="clsE_Notas.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
