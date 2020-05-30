@@ -76,11 +76,17 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="FormularioAlumno.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="FormularioAlumno.Designer.vb">
+      <DependentUpon>FormularioAlumno.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMULARIOPRINCIPAL.Designer.vb">
+      <DependentUpon>FORMULARIOPRINCIPAL.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FORMULARIOPRINCIPAL.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCurso.Designer.vb">
@@ -113,8 +119,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="FormularioAlumno.resx">
+      <DependentUpon>FormularioAlumno.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMULARIOPRINCIPAL.resx">
+      <DependentUpon>FORMULARIOPRINCIPAL.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCurso.resx">
       <DependentUpon>frmCurso.vb</DependentUpon>

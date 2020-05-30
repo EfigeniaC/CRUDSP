@@ -60,11 +60,15 @@ Public Class clsD_Curso
                 Command.Parameters.AddWithValue("@idcurso", objCurso._idCurso)
                 Command.Parameters.AddWithValue("@curso", objCurso._curso)
                 Command.CommandType = CommandType.StoredProcedure
-                If Command.ExecuteNonQuery Then
-                    Return True
-                Else
-                    Return False
-                End If
+                Try
+                    If Command.ExecuteNonQuery Then
+                        Return True
+                    Else
+                        Return False
+                    End If
+                Catch ex As Exception
+                    MsgBox("Curso ya Actualizado")
+                End Try
             End Using
         End Using
         Return False
@@ -85,7 +89,7 @@ Public Class clsD_Curso
                         Return False
                     End If
                 Catch ex As Exception
-                    Return False
+                    MsgBox("Curso Eliminado")
                 End Try
 
             End Using

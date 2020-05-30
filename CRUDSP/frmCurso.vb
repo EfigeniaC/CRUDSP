@@ -11,6 +11,7 @@ Public Class frmCurso
     End Sub
     Private Sub frmCurso_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ListaCurso()
+        FALSO()
     End Sub
     Public Function comprobar() As Boolean
         If Len(Trim$(txtCurso.Text)) <> 0 Then
@@ -19,22 +20,26 @@ Public Class frmCurso
             Return False
         End If
     End Function
-    Private Sub LimpiarDatos()
-        txtCurso.Clear()
-        txtCurso.Clear()
+    Private Sub ENABLE()
+        txtIdCurso.Enabled = False
+        txtCurso.Enabled = True
     End Sub
-    Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        If comprobar() Then
-            objEntidadC._curso = txtCurso.Text
-            objNegocioC.N_registrarCurso(objEntidadC)
-            LimpiarDatos()
-            ListaCurso()
-        Else
-            MsgBox("DEBE DE LLENAR TODOS LOS CAMPOS", MsgBoxStyle.Critical)
-        End If
+    Private Sub FALSO()
+        txtIdCurso.Enabled = False
+        txtCurso.Enabled = True
+        btnAgregar.Enabled = False
+        btnEditar.Enabled = False
+        btnEliminar.Enabled = False
+    End Sub
+    Private Sub LimpiarDatos()
+        txtIdCurso.Clear()
+        txtCurso.Clear()
     End Sub
 
     Private Sub dgv_Curso_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_Curso.CellClick
+        btnEditar.Enabled = True
+        btnEliminar.Enabled = True
+        btnAgregar.Enabled = False
         Dim i As Integer
         i = dgv_Curso.CurrentRow.Index
         txtIdCurso.Text = dgv_Curso.Item(0, i).Value()
@@ -62,14 +67,33 @@ Public Class frmCurso
             Dim i As Integer
             i = dgv_Curso.CurrentRow.Index
             idCurso = dgv_Curso.Item(0, i).Value()
-            objEntidadC._idCurso = idCurso
-            objNegocioC.N_eliminarCurso(objEntidadC)
-            MsgBox("Eliminacion Exitosa")
+            objNegocioC.N_eliminarCurso(idCurso)
             LimpiarDatos()
             ListaCurso()
+            MsgBox("Eliminacion Exitosa")
         Catch ex As Exception
 
         End Try
     End Sub
+
+    Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
+        LimpiarDatos()
+        btnAgregar.Enabled = True
+        btnEditar.Enabled = False
+        btnEliminar.Enabled = False
+        ENABLE()
+    End Sub
+
+    Private Sub btnAgregar_Click_1(sender As Object, e As EventArgs) Handles btnAgregar.Click
+        If comprobar() Then
+            objEntidadC._curso = txtCurso.Text
+            objNegocioC.N_registrarCurso(objEntidadC)
+            LimpiarDatos()
+            ListaCurso()
+        Else
+            MsgBox("DEBE DE LLENAR TODOS LOS CAMPOS", MsgBoxStyle.Critical)
+        End If
+    End Sub
+
 
 End Class

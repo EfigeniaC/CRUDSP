@@ -82,13 +82,13 @@ Public Class clsD_Notas
         End Using
         Return False
     End Function
-    Public Function D_eliminarNota(idNotas As Integer) As Boolean
+    Public Function D_eliminarNota(idNota As Integer) As Boolean
         Using conexion = ObtenerConexion()
             conexion.Open()
             Using Command = New SqlCommand()
                 Command.Connection = conexion
                 Command.CommandText = "SP_ELIMINAR_Nota"
-                Command.Parameters.AddWithValue("@idNotas", idNotas)
+                Command.Parameters.AddWithValue("@idNotas", idNota)
                 Command.CommandType = CommandType.StoredProcedure
                 Try
                     If Command.ExecuteNonQuery Then

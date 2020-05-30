@@ -1,7 +1,7 @@
 ﻿Imports CapaEntidad
 Imports CapaNegocio
 
-Public Class Form1
+Public Class FORMULARIO_ALUMNO
     Dim objNegocioA As New clsN_Alumno
     Dim objEntidadA As New clsE_Alumno
     Sub ListaAlumnos()
@@ -11,6 +11,7 @@ Public Class Form1
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ListaAlumnos()
+        FALSO()
     End Sub
     Public Function comprobar() As Boolean
         If Len(Trim$(txtNombreAlumno.Text)) <> 0 And Len(Trim$(txtApellidosAlumnos.Text)) <> 0 And Len(Trim$(txtTelefono.Text)) <> 0 And Len(Trim$(txtCorreo.Text)) <> 0 Then
@@ -20,10 +21,42 @@ Public Class Form1
         End If
     End Function
     Private Sub LimpiarDatos()
+        txtidAlumno.Clear()
         txtNombreAlumno.Clear()
         txtApellidosAlumnos.Clear()
         txtTelefono.Clear()
         txtCorreo.Clear()
+    End Sub
+    Private Sub ENABLE()
+        'txtidAlumno.Enabled = False
+        'txtNombreAlumno.Enabled = True
+        'txtApellidosAlumnos.Enabled = True
+        'txtTelefono.Enabled = True
+        'txtCorreo.Enabled = True
+        btnAgregar.Enabled = True
+        btnEditar.Enabled = True
+        btnEliminar.Enabled = True
+    End Sub
+    Private Sub FALSO()
+        'txtidAlumno.Enabled = False
+        'txtNombreAlumno.Enabled = False
+        'txtApellidosAlumnos.Enabled = False
+        'rbMasculino.Enabled = False
+        'rbFemenino.Enabled = False
+        'txtTelefono.Enabled = False
+        'txtCorreo.Enabled = False
+        btnAgregar.Enabled = False
+        btnEditar.Enabled = False
+        btnEliminar.Enabled = False
+    End Sub
+    Private Sub txtTelefono_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtTelefono.KeyPress
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
     End Sub
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         If comprobar() Then
@@ -47,6 +80,9 @@ Public Class Form1
 
     End Sub
     Private Sub Dgv_Alumnos_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgv_Alumnos.CellClick
+        btnAgregar.Enabled = False
+        btnEditar.Enabled = True
+        btnEliminar.Enabled = True
         Dim i As Integer
         i = Dgv_Alumnos.CurrentRow.Index
         txtidAlumno.Text = Dgv_Alumnos.Item(0, i).Value()
@@ -98,11 +134,21 @@ Public Class Form1
             i = Dgv_Alumnos.CurrentRow.Index
             idAlumno = Dgv_Alumnos.Item(0, i).Value()
             objNegocioA.N_eliminarAlumno(idAlumno)
+            ListaAlumnos()
             MsgBox("Eliminacion Exitosa")
             LimpiarDatos()
-            ListaAlumnos()
+
         Catch ex As Exception
 
         End Try
     End Sub
+
+    Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
+        LimpiarDatos()
+        ENABLE()
+        btnEditar.Enabled = False
+        btnEliminar.Enabled = False
+    End Sub
+
+
 End Class

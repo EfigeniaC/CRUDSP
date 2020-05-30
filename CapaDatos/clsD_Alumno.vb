@@ -76,13 +76,13 @@ Public Class clsD_Alumno
         Return False
     End Function
     'Funcion Eliminar Alumno
-    Public Function D_eliminarAlumno(idAlumnos As Integer) As Boolean
+    Public Function D_eliminarAlumno(idAlumno As Integer) As Boolean
         Using conexion = ObtenerConexion()
             conexion.Open()
             Using Command = New SqlCommand()
                 Command.Connection = conexion
                 Command.CommandText = "SP_ELIMINIAR_ALUMNO"
-                Command.Parameters.AddWithValue("@id_Alumno", idAlumnos)
+                Command.Parameters.AddWithValue("@id_Alumno", idAlumno)
                 Command.CommandType = CommandType.StoredProcedure
                 Try
                     If Command.ExecuteNonQuery Then

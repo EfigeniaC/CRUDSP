@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.CRUDSP.frmNotas
+            Me.MainForm = Global.CRUDSP.FORMULARIOPRINCIPAL
         End Sub
     End Class
 End Namespace
